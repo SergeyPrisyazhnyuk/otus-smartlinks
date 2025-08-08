@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtTokenProvider {
 
-    private final String secretKey = "secretKey";
+    private final String secretKey = "secretKeyTheReallySecretKeyAndReallyReallySecretKey";
 
     public String generateToken(String username) {
         Claims claims = Jwts.claims().setSubject(username).build();
         return Jwts.builder()
                 .setClaims(claims)
-                .signWith(SignatureAlgorithm.HS512, secretKey)
+                .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
 
