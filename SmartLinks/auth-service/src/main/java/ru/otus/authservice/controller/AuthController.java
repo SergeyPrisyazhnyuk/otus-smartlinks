@@ -39,7 +39,7 @@ public class AuthController {
         return authService.addUser(user);
     }
 
-        @GetMapping("/users")
+    @GetMapping("/users")
     public List<User> getUsers() {
         return authService.getUsers();
     }
