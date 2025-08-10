@@ -14,12 +14,12 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="ID")
+    @Column(name = "ID")
     private Long id;
 
-    @Column(name="USERNAME")
+    @Column(name = "USERNAME")
     private String username;
 
-    @Column(name="PASSWORD")
+    @Column(name = "PASSWORD")
     private String password;
 }
