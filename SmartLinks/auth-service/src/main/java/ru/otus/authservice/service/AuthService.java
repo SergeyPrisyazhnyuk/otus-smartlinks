@@ -26,12 +26,12 @@ public class AuthService {
         return dbUser != null && dbUser.getPassword().equals(user.getPassword());
     }
 
-    public String addUser(User user) {
+    public User addUser(User user) {
         if (userRepository.findByUsername(user.getUsername()) != null) {
             log.info("User with name : " + user.getUsername() + " - already exists");
-            return "User with name : " + user.getUsername() + " - already exists";
+            return null;
         } else {
-            return userRepository.save(user).toString();
+            return userRepository.save(user);
         }
     }
 

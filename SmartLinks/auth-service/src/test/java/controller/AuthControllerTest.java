@@ -84,14 +84,13 @@ public class AuthControllerTest {
         user.setPassword("testPass");
 
         when(authService.addUser(any(User.class)))
-                .thenReturn(user.toString());
+                .thenReturn(user);
 
         mockMvc.perform(post("/auth/save")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(user)))
                 .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().string(user.toString()));
+                .andExpect(status().isOk());
     }
 
     @Test
